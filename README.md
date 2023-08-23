@@ -16,7 +16,7 @@
    
       Make sure that "${USER}/flux/dune2D" exists. ${USER} is your username. Otherwise do it on your own....
    
-    e. $source set_env.sh"
+    e. $source set_env.sh
    
     f. $mkdir build; cd build
     
