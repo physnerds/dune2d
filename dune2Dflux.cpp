@@ -103,11 +103,9 @@ void LoopEntries( TChain* cflux,bool grid, bool debug, int StatsMultiplier)
     std::cout << "\n  Looping over " << nentries << " entries." << std::endl;
     
     for (Long64_t i=0; i < nentries; ++i ) {
-      if (i % (nentries/100) == 0) std::cout << "  entry " << i << std::endl;
-      //std::cout << i << std::endl;
+      if (i % (nentries/10000) == 0) std::cout << "  entry " << i << std::endl;
 
       cflux->GetEntry(i);
-      if (i % (nentries/20) == 0)std::cout << (cflux->GetFile())->GetName() << std::endl;
 
       //neutrino pid
       int decayntype = 0;

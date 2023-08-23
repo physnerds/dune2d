@@ -1,6 +1,7 @@
 
 #include "extract_duneflux.h"
 
+//#define DEBUG 1
 
 
 //Rotation Functions......
@@ -39,20 +40,24 @@ TVector3 RotateToBeam(TVector3 det_loc){
 //   Feeds beam pos (in cm) to bsim::calcEnuWgt which returns Enu and wgt_xy
 //
 // bsim::calcEnuWgt expects a position in Beam coords (cm)
-//
-// Re: User2BeamPos converting (m) to (cm), see 
-// GDk2NuFluxXMLHelper::ParseParamSet + XML file "setting user units"
 void calcEnuWgt(double x, double y, double z, 
                   bsim::Dk2Nu* dk2nu, 
                   double& Enu, 
                   double& wgt_xy)
 {
-  TLorentzVector X4det, X4beam;
+  TLorentzVector X4det;
   TVector3              Xbeam;
   X4det.SetXYZT(x*100, y*100, z*100+57400.0, 0); //note that z is basically distance from MC 0 to ND location
  // gdk2nu->User2BeamPos(X4det, X4beam); //X4beam will be in cm. Need to do rotations etc from Detector to Beam Frame of Reference 
+ // this is not possible for DUNE...trying to do the rotation on my own...AB
   Xbeam = X4det.Vect();  // only want spatial part
+#ifdef DEBUG
+  std::cout<<"Before Rotation "<<Xbeam(0)<<" "<<Xbeam(1)<<" "<<Xbeam(2)<<std::endl;
+#endif
   Xbeam =  RotateToBeam (Xbeam);
+#ifdef DEBUG
+  std::cout<<"After Rotation "<<Xbeam(0)<<" "<<Xbeam(1)<<" "<<Xbeam(2)<<std::endl;
+#endif
   bsim::calcEnuWgt(dk2nu, Xbeam, Enu, wgt_xy);
 }
 

@@ -15,7 +15,7 @@
     g. cmake ..
     h. (If the build is succesful you can try: ./dune2Dflux 1 /pnfs/dune/persistent/users/djena/DUNE2023/20230728TgtNeutrino/v3r5p10/QGSP_BERT/OfficialEngDesignSept2021/neutrino/flux/g4lbne_v3r5p10_QGSP_BERT_OfficialEngDesignSept2021_neutrino_00028.dk2nu.root )
     i. Output will appear in TOPDIR_PNFS directory.
-    j. "1" in h is the hstat and you can change it to any number you want to reuse the pion decay info. For example 1 means a pion decay info is used only once to get neutrino flux and energy. 2 would beam, it is used two times to get the flux and neutrino flux and so on. The multiplier is based on a uniform random number generator across the geometry of the Near Detector. 
+    j. "1" in h is the hstat and you can change it to any number you want to reuse the pion decay info. For example 1 means a pion decay info is used only once to get neutrino flux and energy. 2 would mean, it is used two times to get the flux and neutrino flux and so on. The multiplier is based on a uniform random number generator across the geometry of the Near Detector. 
 
 ## TESTS DONE IN DUNEGPVM
  The main function to calculate weight is calcEnuWgt in extract_duneflux. The function takes x,y,z (with respect to the g4lbnf MC 0) co-ordinates to calculate the flux at the DUNE detector location. The relies on dk2nu function. dk2nu also pre-calculates the flux at the center of the front fact of the detector location in the ntuple dk2nu->nuray[1].wgt and dk2nu->nuray[1].Enu. I verified that the flux over fiducial volume is implemented correctly by forcing all the neutrinos to project over the center of the detector and then comparing against the above variables. 
@@ -24,12 +24,9 @@
  ## RotateToBeam(det_loc) 
  This function is meant to rotate the detector location from detector frame of reference to beam frame of reference. Right now the rotation angles theta and phi are set at 0 (i.e no rotation required) but could update the values. I have not done the cross-check with the function and hope that the users do these cross-checks before showing these results in wider audience.
 
- ## USAGE
- 1. Copy the directory (in a dunegpvm) /dune/app/users/bashyal8/g4lbne_dev/v3r5p9/g4lbne/BeamSimStudies/dune2d
- 2. source set_env.sh
- 3. mkdir build
- 4. cmake ..
- 5. make
- 6. ./dune2Dflux 1 /pnfs/dune/persistent/users/djena/DUNE2023/20230728TgtNeutrino/v3r5p10/QGSP_BERT/OfficialEngDesignSept2021/neutrino/flux/g4lbne_v3r5p10_QGSP_BERT_OfficialEngDesignSept2021_neutrino_00028.dk2nu.root
+### Angles in RotateToBeam(det_loc)
+    The angles are set in "etract_duneflux.h".
+    The function that actually does the rotation is "RotateToBeam(TVector3 theta_rot)" which then calls the functions "RotatePhi and RotateTheta" as consequitive linear operation. Both Theta and Phi are meant to be in radians (AND NOT DEGREES) and assumes that the axis of rotation between the Beam Frame and Detector Frame is MC 0. 
+
 
 

@@ -28,7 +28,7 @@
     constexpr double dunezdim = 2.5;
 //AB: Angle of rotations from Detector To Beam Frame of Reference in radians....
 //Note that the beam is slanted wrto the detector....
-    constexpr double theta_det_to_beam = 0.0; //3 degrees...convert to radians
+    constexpr double theta_det_to_beam = -0.0108; // 62 meters depth, 574 meters hypnotenus 
     constexpr double phi_det_to_beam = 0.0;
 
 //AB: Rotations to go from Detector Frame of Reference To Beam Frame Of Reference
