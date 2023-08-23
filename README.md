@@ -45,7 +45,7 @@ Histogram creation informations are in `CommonIncludes.h`.
 
 ### Angles in RotateToBeam(det_loc)
 The angles are set in "etract_duneflux.h".
-The function that actually does the rotation is "RotateToBeam(TVector3 theta_rot)" which then calls the functions "RotatePhi and RotateTheta" as consequitive linear operation. Both Theta and Phi are meant to be in radians (AND NOT DEGREES) and assumes that the axis of rotation between the Beam Frame and Detector Frame is MC 0. 
+The function that actually does the rotation is "RotateToBeam(TVector3 theta_rot)" which then calls the functions "RotatePhi and RotateTheta" as consequitive linear operation. Both Theta and Phi are meant to be in radians (AND NOT DEGREES).
 
 
 
