@@ -14,7 +14,7 @@
     d. Edit output directory:
       std::string TOPDIR_PNFS = "/dune/data/users/bashyal8/flux/dune2D/";
    
-      Make sure that "${USER} (hardcoded)/flux/dune2D" exists. Otherwise do it on your own....
+      Make sure that "${USER}/flux/dune2D" exists. ${USER} is your username. Otherwise do it on your own....
    
     e. Run "set_env.sh"
    
