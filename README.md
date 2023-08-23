@@ -5,9 +5,9 @@
 3. Code is not committed in dune repo since it needs to go through extensive tests. But locally, it lives here: /dune/app/users/bashyal8/g4lbne_dev/v3r5p9/g4lbne/BeamSimStudies/dune2d/
 4. To build the code, follow the below instructions:
 5. 
-    a. mkdir wordir
+    a. $mkdir wordir
 
-    b. cd workdir
+    b. $cd workdir
    
     c. In your dunegpvm area, copy everything from /dune/app/users/bashyal8/g4lbne_dev/v3r5p9/g4lbne/BeamSimStudies/dune2d
    
@@ -16,13 +16,13 @@
    
       Make sure that "${USER}/flux/dune2D" exists. ${USER} is your username. Otherwise do it on your own....
    
-    e. Run "set_env.sh"
+    e. $source set_env.sh"
    
-    f. mkdir build; cd build
+    f. $mkdir build; cd build
     
-    g. cmake ..
+    g. c$make ..
    
-    h. (If the build is succesful you can try: ./dune2Dflux 1 /pnfs/dune/persistent/users/djena/DUNE2023/20230728TgtNeutrino/v3r5p10/QGSP_BERT/OfficialEngDesignSept2021/neutrino/flux/g4lbne_v3r5p10_QGSP_BERT_OfficialEngDesignSept2021_neutrino_00028.dk2nu.root
+    h. (If the build is succesful you can try: $./dune2Dflux 1 /pnfs/dune/persistent/users/djena/DUNE2023/20230728TgtNeutrino/v3r5p10/QGSP_BERT/OfficialEngDesignSept2021/neutrino/flux/g4lbne_v3r5p10_QGSP_BERT_OfficialEngDesignSept2021_neutrino_00028.dk2nu.root
    
     i. Output will appear in TOPDIR_PNFS directory.
    
