@@ -1,3 +1,5 @@
+This is the Code based on 2 D flux extraction method written by Ben Messerly of the MINERvA collaboration.
+
 ## Purpose of the Code
 1. This code attempts to estimate the neutrino flux at the DUNE ND assuming the detector has physical dimensions throughout a physical detector volume (X(left,right with respect to the beam co-ordinates), Y (top,bottom with respect to beam co-ordinates),Z(front, back with respect to beam co-ordinates)).
   
