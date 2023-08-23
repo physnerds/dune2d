@@ -27,9 +27,15 @@
    
     i. Output will appear in either in TOPDIR_BLUEARC for the debug mode running.
    
-    j. `1` in h is the hstat and you can change it to any number you want to reuse the pion decay info. For example `1` means a pion decay info is used only once to get neutrino flux and energy. `2` would mean, it is used two times to get the flux and neutrino flux and so on. The multiplier is based on a uniform random number generator across the geometry of the Near Detector. The multiplier info is saved in the histogram `hStatMultiplier`
-   
+    j. `1` in argument is the stat-multiplier and you can change it to any number you want to reuse the pion decay info. For example `1` means a pion decay info is used only once to get neutrino flux and energy. `2` would mean, it is used two times to get the flux and neutrino flux and so on. The multiplier is based on a uniform random number generator across the geometry of the Near Detector. The multiplier info is saved in the histogram `hStatMultiplier`.
+   k. Histograms of each neutrino species are saved in the corresponding directories `numu, numubar,nue,nuebar`. 1 D histograms are in the `1D` directory. In that directory, you will find `hFluxCenter` histogram which is the flux calculated at (0,0,57400) for DUNE ND.
+   `hFluxRndDetXYZ` is the flux over the fiducial volume of the DUNE ND. `2D` histograms are saved in `2D` subdirectory. Flux Histograms of over the `XY` plane of the Detector for random `Z`  location are saved for all energy and different energy ranges.
 
+   
+## SOME RELEVANT INFO 
+ DUNE Related constants are in `extract_duneflux.h` code. It has the detector dimension and  detector orientation (`theta` and `phi`) with respect to the beam. 
+Histogram creation informations are in `CommonIncludes.h`. 
+ 
 ## TESTS DONE IN DUNEGPVM
  The main function to calculate weight is calcEnuWgt in extract_duneflux. The function takes x,y,z (with respect to the g4lbnf MC 0) co-ordinates to calculate the flux at the DUNE detector location. The relies on dk2nu function. dk2nu also pre-calculates the flux at the center of the front fact of the detector location in the ntuple dk2nu->nuray[1].wgt and dk2nu->nuray[1].Enu. I verified that the flux over fiducial volume is implemented correctly by forcing all the neutrinos to project over the center of the detector and then comparing against the above variables. 
  Besides this, I think a proper calculation of flux will need the rotation of co-ordinates from beam frame (in which the neutrino info is saved in the dk2nu file) to the detector frame (where we want to find the detector). 
