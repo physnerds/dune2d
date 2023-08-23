@@ -20,7 +20,7 @@
    
     f. $mkdir build; cd build
     
-    g. c$make ..
+    g. $cmake ..
    
     h. (If the build is succesful you can try: $./dune2Dflux 1 /pnfs/dune/persistent/users/djena/DUNE2023/20230728TgtNeutrino/v3r5p10/QGSP_BERT/OfficialEngDesignSept2021/neutrino/flux/g4lbne_v3r5p10_QGSP_BERT_OfficialEngDesignSept2021_neutrino_00028.dk2nu.root
    
