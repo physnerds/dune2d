@@ -15,7 +15,7 @@ void calcEnuWgt(double x, double y, double z, bsim::Dk2Nu* dk2nu, double& Enu, d
 int GetPOTfromMeta(const char *dirname, const char *extension);
 
   bool do_1D_hists = true;
-  bool do_2D_hists= false;
+  bool do_2D_hists= true;
 //arguments required in original jobsub python script might be ....
 //shift_name, shift_sigma and Statsmultiplier and a boolean to know if we want to run the extract flux command or not
 //i guess. only 1D histogram for now....
@@ -160,7 +160,6 @@ void LoopEntries( TChain* cflux,bool grid, bool debug, int StatsMultiplier)
       //========================================================================
       //2DHists -- single z position
       //           downstream, center, or upstream.
-      //           Flux through minerva hex
       //========================================================================
       if(do_2D_hists){
         //perform the loops in (cm)...
@@ -180,7 +179,17 @@ void LoopEntries( TChain* cflux,bool grid, bool debug, int StatsMultiplier)
             //Again: provide this function with positions in (m)
             calcEnuWgt(x, y, zin, dk2nu, Enu, wgt_xy);
             hXYFluxRndZ[nutype]->Fill(x, y, wgt_xy*decaynimpwt);
-
+            // fill histos with (m)
+            if (Enu<4)       hXYFlux0_4GeVRndZ[nutype]->Fill(x,y,wgt_xy*decaynimpwt);
+            else if (Enu<5)  hXYFlux4_5GeVRndZ[nutype]->Fill(x,y,wgt_xy*decaynimpwt);
+            else if (Enu<6)  hXYFlux5_6GeVRndZ[nutype]->Fill(x,y,wgt_xy*decaynimpwt);
+            else if (Enu<7)  hXYFlux6_7GeVRndZ[nutype]->Fill(x,y,wgt_xy*decaynimpwt);
+            else if (Enu<8)  hXYFlux7_8GeVRndZ[nutype]->Fill(x,y,wgt_xy*decaynimpwt);
+            else if (Enu<10) hXYFlux8_10GeVRndZ[nutype]->Fill(x,y,wgt_xy*decaynimpwt);
+            else if (Enu<12) hXYFlux10_12GeVRndZ[nutype]->Fill(x,y,wgt_xy*decaynimpwt);
+            else if (Enu<14) hXYFlux12_14GeVRndZ[nutype]->Fill(x,y,wgt_xy*decaynimpwt);
+            else if (Enu<20) hXYFlux14_20GeVRndZ[nutype]->Fill(x,y,wgt_xy*decaynimpwt);
+            else             hXYFlux20_50GeVRndZ[nutype]->Fill(x,y,wgt_xy*decaynimpwt);
           }
         }//end x-y loop
       }//end 2d hists
