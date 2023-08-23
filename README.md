@@ -37,8 +37,8 @@
  This function is meant to rotate the detector location from detector frame of reference to beam frame of reference. Right now the rotation angles theta and phi are set at 0 (i.e no rotation required) but could update the values. I have not done the cross-check with the function and hope that the users do these cross-checks before showing these results in wider audience.
 
 ### Angles in RotateToBeam(det_loc)
-    The angles are set in "etract_duneflux.h".
-    The function that actually does the rotation is "RotateToBeam(TVector3 theta_rot)" which then calls the functions "RotatePhi and RotateTheta" as consequitive linear operation. Both Theta and Phi are meant to be in radians (AND NOT DEGREES) and assumes that the axis of rotation between the Beam Frame and Detector Frame is MC 0. 
+The angles are set in "etract_duneflux.h".
+The function that actually does the rotation is "RotateToBeam(TVector3 theta_rot)" which then calls the functions "RotatePhi and RotateTheta" as consequitive linear operation. Both Theta and Phi are meant to be in radians (AND NOT DEGREES) and assumes that the axis of rotation between the Beam Frame and Detector Frame is MC 0. 
 
 
 
