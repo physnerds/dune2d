@@ -12,7 +12,7 @@
     c. In your dunegpvm area, $git clone https://github.com/physnerds/dune2d
    
     d. Edit output directory:
-      ``std::string TOPDIR_BLUEARC = "/dune/data/users/bashyal8/flux/dune2D/";`` in `CommonIncludes.h`
+      `std::string TOPDIR_BLUEARC = "/dune/data/users/bashyal8/flux/dune2D/";` in `CommonIncludes.h`
       Note that the code is committed with `debug` flag on. To get this thing running in grid, you need to turn off the `debug` flag and edit the `pnfs` area accordingly. I have not tested the grid mode of this code yet.
    
       Make sure that "${USER}/flux/dune2D" exists. ${USER} is your username. Otherwise do it on your own....
