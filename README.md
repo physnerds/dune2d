@@ -23,11 +23,11 @@
     
     g. $cmake ..
    
-    h. If the build is succesful you can try: $./dune2Dflux 1 /pnfs/dune/persistent/users/djena/DUNE2023/20230728TgtNeutrino/v3r5p10/QGSP_BERT/OfficialEngDesignSept2021/neutrino/flux/g4lbne_v3r5p10_QGSP_BERT_OfficialEngDesignSept2021_neutrino_00028.dk2nu.root
+    h. If the build is succesful you can try: `$./dune2Dflux 1 /pnfs/dune/persistent/users/djena/DUNE2023/20230728TgtNeutrino/v3r5p10/QGSP_BERT/OfficialEngDesignSept2021/neutrino/flux/g4lbne_v3r5p10_QGSP_BERT_OfficialEngDesignSept2021_neutrino_00028.dk2nu.root`
    
     i. Output will appear in TOPDIR_PNFS directory.
    
-    j. "1" in h is the hstat and you can change it to any number you want to reuse the pion decay info. For example 1 means a pion decay info is used only once to get neutrino flux and energy. 2 would mean, it is used two times to get the flux and neutrino flux and so on. The multiplier is based on a uniform random number generator across the geometry of the Near Detector.
+    j. `1` in h is the hstat and you can change it to any number you want to reuse the pion decay info. For example `1` means a pion decay info is used only once to get neutrino flux and energy. `2` would mean, it is used two times to get the flux and neutrino flux and so on. The multiplier is based on a uniform random number generator across the geometry of the Near Detector. The multiplier info is saved in the histogram `hStatMultiplier`
    
 
 ## TESTS DONE IN DUNEGPVM
