@@ -4,18 +4,30 @@
 2. This test suite was built on dunegpvm machine.
 3. Code is not committed in dune repo since it needs to go through extensive tests. But locally, it lives here: /dune/app/users/bashyal8/g4lbne_dev/v3r5p9/g4lbne/BeamSimStudies/dune2d/
 4. To build the code, follow the below instructions:
+5. 
     a. mkdir wordir
+
     b. cd workdir
-    c. In your dunegpvm area, copy everything from /dune/app/users/bashyal8/g4lbne_dev/v3r5p9/g4lbne/BeamSimStudies/dune2d 
+   
+    c. In your dunegpvm area, copy everything from /dune/app/users/bashyal8/g4lbne_dev/v3r5p9/g4lbne/BeamSimStudies/dune2d
+   
     d. Edit output directory:
       std::string TOPDIR_PNFS = "/dune/data/users/bashyal8/flux/dune2D/";
+   
       Make sure that "${USER} (hardcoded)/flux/dune2D" exists. Otherwise do it on your own....
+   
     e. Run "set_env.sh"
-    f. mkdir build; cd build    
+   
+    f. mkdir build; cd build
+    
     g. cmake ..
-    h. (If the build is succesful you can try: ./dune2Dflux 1 /pnfs/dune/persistent/users/djena/DUNE2023/20230728TgtNeutrino/v3r5p10/QGSP_BERT/OfficialEngDesignSept2021/neutrino/flux/g4lbne_v3r5p10_QGSP_BERT_OfficialEngDesignSept2021_neutrino_00028.dk2nu.root )
+   
+    h. (If the build is succesful you can try: ./dune2Dflux 1 /pnfs/dune/persistent/users/djena/DUNE2023/20230728TgtNeutrino/v3r5p10/QGSP_BERT/OfficialEngDesignSept2021/neutrino/flux/g4lbne_v3r5p10_QGSP_BERT_OfficialEngDesignSept2021_neutrino_00028.dk2nu.root
+   
     i. Output will appear in TOPDIR_PNFS directory.
-    j. "1" in h is the hstat and you can change it to any number you want to reuse the pion decay info. For example 1 means a pion decay info is used only once to get neutrino flux and energy. 2 would mean, it is used two times to get the flux and neutrino flux and so on. The multiplier is based on a uniform random number generator across the geometry of the Near Detector. 
+   
+    j. "1" in h is the hstat and you can change it to any number you want to reuse the pion decay info. For example 1 means a pion decay info is used only once to get neutrino flux and energy. 2 would mean, it is used two times to get the flux and neutrino flux and so on. The multiplier is based on a uniform random number generator across the geometry of the Near Detector.
+   
 
 ## TESTS DONE IN DUNEGPVM
  The main function to calculate weight is calcEnuWgt in extract_duneflux. The function takes x,y,z (with respect to the g4lbnf MC 0) co-ordinates to calculate the flux at the DUNE detector location. The relies on dk2nu function. dk2nu also pre-calculates the flux at the center of the front fact of the detector location in the ntuple dk2nu->nuray[1].wgt and dk2nu->nuray[1].Enu. I verified that the flux over fiducial volume is implemented correctly by forcing all the neutrinos to project over the center of the detector and then comparing against the above variables. 
