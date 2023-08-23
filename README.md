@@ -9,7 +9,7 @@
 
     b. $cd workdir
    
-    c. In your dunegpvm area, git clone https://github.com/physnerds/dune2d
+    c. In your dunegpvm area, $git clone https://github.com/physnerds/dune2d
    
     d. Edit output directory:
       std::string TOPDIR_PNFS = "/dune/data/users/bashyal8/flux/dune2D/";
