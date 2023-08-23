@@ -12,7 +12,7 @@
     c. In your dunegpvm area, $git clone https://github.com/physnerds/dune2d
    
     d. Edit output directory:
-      std::string TOPDIR_PNFS = "/dune/data/users/bashyal8/flux/dune2D/";
+      std::string TOPDIR_PNFS = "/dune/data/users/bashyal8/flux/dune2D/"; in CommonIncludes.h
    
       Make sure that "${USER}/flux/dune2D" exists. ${USER} is your username. Otherwise do it on your own....
    
